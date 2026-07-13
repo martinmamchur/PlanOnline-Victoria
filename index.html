@@ -881,7 +881,7 @@ function isVertical(raw) {
 function renderExCard(week, dayIdx, phase, idx, exObj) {
   const dayKey = `w${week}_d${dayIdx}_${phase}`;
   const logKey = `${dayKey}__log${idx}`;
-  const vidKey = `${dayKey}__ex${idx}__${exObj.name.replace(/[^a-zA-Z0-9]+/g,'-').toLowerCase()}`;
+  const vidKey = exObj.name; // clave = nombre del ejercicio, coincide con videos.json
   const entry = state.logData[logKey] || { sets:[], comment:'', kneeSensation: null };
   const numSets = typeof exObj.sets === 'number' ? exObj.sets : 1;
   const setsArr = entry.sets.length === numSets ? entry.sets : Array.from({length:numSets},(_,i)=>entry.sets[i]||{kg:'',reps:''});
