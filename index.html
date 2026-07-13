@@ -746,8 +746,8 @@ function renderSession(week, dayIdx, session) {
 
   wuSlots.forEach(function(slot) {
     var wuKey = 'w' + week + '_d' + dayIdx + '_WU_' + slot.key;
-    var vidKey = wuKey + '__vid';
-    var commentKey = wuKey + '__comment';
+    var vidKey = 'calentamiento__' + slot.key; // clave fija — mismo video para todas las semanas
+    var commentKey = wuKey + '__comment'; // comentario sí es por sesión
 
     var wuCard = document.createElement('div');
     wuCard.className = 'ex-card normal';
