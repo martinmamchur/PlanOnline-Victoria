@@ -204,7 +204,18 @@ input::placeholder,textarea::placeholder{color:var(--faint);}
     <div id="header-btns">
       <button class="hbtn hbtn-lime" onclick="exportProgress()">⬇ EXPORTAR PROGRESO</button>
       <button class="hbtn hbtn-dim" onclick="triggerImport()">⬆ IMPORTAR</button>
+      <button class="hbtn" onclick="ghSaveProgress()" style="border-color:#4ade80;color:#4ade80;">☁ SINCRONIZAR</button>
       <input id="import-file" type="file" accept=".json,application/json" style="display:none" onchange="handleImport(event)"/>
+      <div id="sync-msg" style="font-size:12px;margin-top:4px;"></div>
+      <div id="token-ui" style="display:none;margin-top:8px;padding:12px;background:var(--surface);border:1px solid var(--border);border-radius:8px;">
+        <div style="font-size:11px;color:var(--dim);margin-bottom:6px;letter-spacing:.08em;text-transform:uppercase;">Token de GitHub para sincronizar</div>
+        <div style="display:flex;gap:8px;">
+          <input id="token-input" type="password" placeholder="ghp_..." style="flex:1;padding:8px;border-radius:6px;border:1px solid var(--border);background:#1a1a1a;color:#fff;font-size:13px;"/>
+          <button onclick="saveTokenAndClose()" style="padding:8px 14px;border-radius:6px;border:1px solid #4ade80;background:transparent;color:#4ade80;font-size:13px;cursor:pointer;">Guardar</button>
+          <button onclick="showTokenUI()" style="padding:8px 14px;border-radius:6px;border:1px solid var(--border);background:transparent;color:var(--dim);font-size:13px;cursor:pointer;">Cancelar</button>
+        </div>
+        <div style="font-size:11px;color:var(--dim);margin-top:6px;">El token se guarda solo en este navegador.</div>
+      </div>
       <button class="hbtn hbtn-dim" onclick="resetAll()">REINICIAR DATOS</button>
     </div>
   </div>
@@ -1302,6 +1313,63 @@ function commitName() {
 /* ============================================================
    EXPORT / IMPORT
    ============================================================ */
+/* ============================================================ GITHUB PROGRESS SYNC */
+const GH_PROGRESS_FILE = 'progreso.json';
+
+function getProgressToken(){ return localStorage.getItem('gh_token_victoria')||''; }
+function setProgressToken(t){ localStorage.setItem('gh_token_victoria',t); }
+
+async function ghLoadProgress(){
+  try{
+    const url='https://raw.githubusercontent.com/'+GH_USER+'/'+GH_REPO+'/main/'+GH_PROGRESS_FILE+'?t='+Date.now();
+    const res=await fetch(url);
+    if(!res.ok) return null;
+    return await res.json();
+  }catch(e){ return null; }
+}
+
+async function ghSaveProgress(){
+  const token=getProgressToken();
+  if(!token){ showSyncMsg('Pegá tu token de GitHub primero','err'); showTokenUI(); return; }
+  showSyncMsg('Sincronizando...','');
+  const data={app:'plan-victoria',exportedAt:new Date().toISOString(),
+    planStart:state.planStart,logData:state.logData,videos:state.videos,sessionDone:state.sessionDone};
+  try{
+    const apiUrl='https://api.github.com/repos/'+GH_USER+'/'+GH_REPO+'/contents/'+GH_PROGRESS_FILE;
+    const headers={'Authorization':'token '+token,'Accept':'application/vnd.github.v3+json','Content-Type':'application/json'};
+    let sha=null;
+    try{ const gr=await fetch(apiUrl,{headers}); if(gr.ok){const gd=await gr.json(); sha=gd.sha;} }catch(e){}
+    const content=btoa(unescape(encodeURIComponent(JSON.stringify(data,null,2))));
+    const body={message:'Progreso Victoria — '+new Date().toLocaleString(),content,...(sha?{sha}:{})};
+    const r=await fetch(apiUrl,{method:'PUT',headers,body:JSON.stringify(body)});
+    if(r.ok){ showSyncMsg('☁ Sincronizado en GitHub','ok'); }
+    else{ showSyncMsg('✗ Error al sincronizar ('+r.status+')','err'); }
+  }catch(e){ showSyncMsg('✗ Error al sincronizar','err'); }
+}
+
+function showSyncMsg(text,type){
+  const el=document.getElementById('sync-msg');
+  if(!el) return;
+  el.textContent=text;
+  el.style.color=type==='ok'?'#4ade80':type==='err'?'var(--accent)':'var(--dim)';
+  if(text) setTimeout(()=>{ el.textContent=''; },3000);
+}
+
+function showTokenUI(){
+  const el=document.getElementById('token-ui');
+  if(el) el.style.display=el.style.display==='none'?'block':'none';
+}
+
+function saveTokenAndClose(){
+  const inp=document.getElementById('token-input');
+  if(inp && inp.value.trim()){
+    setProgressToken(inp.value.trim());
+    showTokenUI();
+    showSyncMsg('Token guardado','ok');
+  }
+}
+
+/* ============================================================ EXPORT / IMPORT */
 function exportProgress() {
   var payload = {
     app: 'plan-piernas-12-semanas-victoria',
@@ -1386,29 +1454,29 @@ function _showError(msg, detail) {
 }
 
 async function _boot() {
-  // Cargar videos desde GitHub (fuente de verdad del coach)
-  // Si falla (sin internet), usa el cache local de localStorage
+  // Cargar videos desde GitHub
   try {
     const ghVideos = await ghGetVideos();
     if (ghVideos && typeof ghVideos === 'object') {
       state.videos = ghVideos;
       storageSet('videos', ghVideos);
     }
-  } catch(e) { /* usa cache local */ }
+  } catch(e) {}
 
+  // Cargar progreso desde GitHub
   try {
-    renderHeader();
-  } catch(e) {
-    _showError('Error en renderHeader: ' + e.message, e.stack ? e.stack.split('\n').slice(0,4).join(' | ') : '');
-    return;
-  }
-  try {
-    renderPlan();
-  } catch(e) {
-    _showError('Error en renderPlan: ' + e.message, e.stack ? e.stack.split('\n').slice(0,4).join(' | ') : '');
-  }
+    const ghProgress = await ghLoadProgress();
+    if (ghProgress && ghProgress.logData) {
+      state.logData = ghProgress.logData;
+      state.sessionDone = ghProgress.sessionDone || {};
+      if(ghProgress.planStart) state.planStart = ghProgress.planStart;
+      save();
+    }
+  } catch(e) {}
+
+  try { renderHeader(); } catch(e) { _showError('Error en renderHeader: '+e.message); return; }
+  try { renderPlan(); } catch(e) { _showError('Error en renderPlan: '+e.message); }
 }
-
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', function() { _boot(); });
 } else {
