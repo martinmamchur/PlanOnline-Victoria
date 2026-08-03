@@ -1,6 +1,6 @@
 {
   "app": "plan-victoria",
-  "exportedAt": "2026-07-29T01:43:25.299Z",
+  "exportedAt": "2026-08-03T23:25:51.583Z",
   "planStart": "",
   "logData": {
     "w4_d2_C__log1": {
@@ -488,6 +488,100 @@
       ],
       "kneeSensation": null,
       "comment": "No hice porque la muchacha no se iba más "
+    },
+    "w6_d0_C__log0": {
+      "sets": [
+        {
+          "kg": "40,8",
+          "reps": "12"
+        },
+        {
+          "kg": "40,8",
+          "reps": "12"
+        },
+        {
+          "kg": "40,8",
+          "reps": "12"
+        }
+      ],
+      "comment": "En la serie 2 pare en la rep 8 y después seguí \n\nNo respete los 15 segundos de pausa ",
+      "kneeSensation": null
+    },
+    "w6_d0_C__log2": {
+      "sets": [
+        {
+          "kg": "12,5",
+          "reps": "10"
+        },
+        {
+          "kg": "12,5",
+          "reps": "10"
+        },
+        {
+          "kg": "12,5",
+          "reps": "10"
+        }
+      ],
+      "comment": "",
+      "kneeSensation": null
+    },
+    "w6_d0_C__log1": {
+      "sets": [
+        {
+          "kg": "31,8",
+          "reps": "15"
+        },
+        {
+          "kg": "31,8",
+          "reps": "15"
+        },
+        {
+          "kg": "31,8",
+          "reps": "15"
+        }
+      ],
+      "comment": "Pierna izquierda 2 serie: hice hasta 10\nPierna izquierda 3 sería: 10 reps\nNo respeté los 60 segundos ",
+      "kneeSensation": null
+    },
+    "w6_d0_C__log3": {
+      "sets": [
+        {
+          "kg": "20",
+          "reps": "20"
+        },
+        {
+          "kg": "20",
+          "reps": "20"
+        },
+        {
+          "kg": "20",
+          "reps": "20"
+        }
+      ],
+      "comment": "",
+      "kneeSensation": null
+    },
+    "w6_d0_B__log0": {
+      "sets": [
+        {
+          "kg": "12",
+          "reps": "8"
+        },
+        {
+          "kg": "15",
+          "reps": "8"
+        },
+        {
+          "kg": "15",
+          "reps": "8"
+        },
+        {
+          "kg": "15",
+          "reps": "8"
+        }
+      ],
+      "kneeSensation": null,
+      "comment": "Barra de 15"
     }
   },
   "videos": {
