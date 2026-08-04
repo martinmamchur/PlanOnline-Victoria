@@ -1,6 +1,6 @@
 {
   "app": "plan-victoria",
-  "exportedAt": "2026-08-03T23:25:51.583Z",
+  "exportedAt": "2026-08-04T23:34:57.668Z",
   "planStart": "",
   "logData": {
     "w4_d2_C__log1": {
@@ -582,6 +582,122 @@
       ],
       "kneeSensation": null,
       "comment": "Barra de 15"
+    },
+    "w6_d1_B__log0": {
+      "sets": [
+        {
+          "kg": "5",
+          "reps": "10"
+        },
+        {
+          "kg": "5",
+          "reps": "8"
+        },
+        {
+          "kg": "5",
+          "reps": "10"
+        },
+        {
+          "kg": "5",
+          "reps": "10"
+        }
+      ],
+      "comment": "",
+      "kneeSensation": null
+    },
+    "w6_d1_B__log1": {
+      "sets": [
+        {
+          "kg": "5",
+          "reps": "8"
+        },
+        {
+          "kg": "5",
+          "reps": "8"
+        },
+        {
+          "kg": "5",
+          "reps": "8"
+        },
+        {
+          "kg": "5",
+          "reps": "8"
+        }
+      ],
+      "comment": "",
+      "kneeSensation": null
+    },
+    "w6_d1_C__log3": {
+      "sets": [
+        {
+          "kg": "13,6",
+          "reps": "15"
+        },
+        {
+          "kg": "13,6",
+          "reps": "15"
+        },
+        {
+          "kg": "13,6",
+          "reps": "15"
+        }
+      ],
+      "comment": "#4: 13,6 x15 reps",
+      "kneeSensation": null
+    },
+    "w6_d1_C__log2": {
+      "sets": [
+        {
+          "kg": "2,5",
+          "reps": "7"
+        },
+        {
+          "kg": "2,5",
+          "reps": "7"
+        },
+        {
+          "kg": "2,5",
+          "reps": "7"
+        }
+      ],
+      "kneeSensation": null,
+      "comment": "7 reps"
+    },
+    "w6_d1_C__log0": {
+      "sets": [
+        {
+          "kg": "4,5",
+          "reps": "12"
+        },
+        {
+          "kg": "4,5",
+          "reps": "12"
+        },
+        {
+          "kg": "4,5",
+          "reps": "12"
+        }
+      ],
+      "comment": "",
+      "kneeSensation": null
+    },
+    "w6_d1_C__log1": {
+      "sets": [
+        {
+          "kg": "4,5",
+          "reps": "6"
+        },
+        {
+          "kg": "4,5",
+          "reps": "6"
+        },
+        {
+          "kg": "4,5",
+          "reps": "6"
+        }
+      ],
+      "comment": "",
+      "kneeSensation": null
     }
   },
   "videos": {
