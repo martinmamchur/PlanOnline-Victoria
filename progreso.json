@@ -1,6 +1,6 @@
 {
   "app": "plan-victoria",
-  "exportedAt": "2026-08-12T22:37:19.269Z",
+  "exportedAt": "2026-08-12T23:06:39.644Z",
   "planStart": "",
   "logData": {
     "w4_d2_C__log1": {
@@ -732,12 +732,70 @@
           "reps": "8"
         },
         {
-          "kg": "",
-          "reps": ""
+          "kg": "15",
+          "reps": "8"
         },
         {
-          "kg": "",
+          "kg": "15",
+          "reps": "8"
+        }
+      ],
+      "comment": "",
+      "kneeSensation": null
+    },
+    "w7_d2_B__log1": {
+      "sets": [
+        {
+          "kg": "35",
+          "reps": "10"
+        },
+        {
+          "kg": "35",
+          "reps": "10"
+        },
+        {
+          "kg": "35",
+          "reps": "10"
+        },
+        {
+          "kg": "35",
+          "reps": "10"
+        }
+      ],
+      "comment": "",
+      "kneeSensation": 3
+    },
+    "w7_d2_C__log2": {
+      "sets": [
+        {
+          "kg": "40",
+          "reps": "12"
+        },
+        {
+          "kg": "40",
+          "reps": "12"
+        },
+        {
+          "kg": "40",
           "reps": ""
+        }
+      ],
+      "comment": "",
+      "kneeSensation": null
+    },
+    "w7_d2_C__log1": {
+      "sets": [
+        {
+          "kg": "31,8",
+          "reps": "20"
+        },
+        {
+          "kg": "31,8",
+          "reps": "20"
+        },
+        {
+          "kg": "31,8",
+          "reps": "20"
         }
       ],
       "comment": "",
