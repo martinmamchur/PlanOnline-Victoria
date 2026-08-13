@@ -1,6 +1,6 @@
 {
   "app": "plan-victoria",
-  "exportedAt": "2026-08-12T23:29:38.118Z",
+  "exportedAt": "2026-08-13T22:00:46.714Z",
   "planStart": "",
   "logData": {
     "w4_d2_C__log1": {
@@ -817,6 +817,50 @@
         }
       ],
       "comment": "",
+      "kneeSensation": null
+    },
+    "w7_d3_B__log1": {
+      "sets": [
+        {
+          "kg": "13,6",
+          "reps": "8"
+        },
+        {
+          "kg": "13,6",
+          "reps": "8"
+        },
+        {
+          "kg": "13,6",
+          "reps": "8"
+        },
+        {
+          "kg": "13,6",
+          "reps": "8"
+        }
+      ],
+      "comment": "",
+      "kneeSensation": null
+    },
+    "w7_d3_B__log0": {
+      "sets": [
+        {
+          "kg": "10",
+          "reps": "8"
+        },
+        {
+          "kg": "10",
+          "reps": "8"
+        },
+        {
+          "kg": "10",
+          "reps": "8"
+        },
+        {
+          "kg": "10",
+          "reps": "8"
+        }
+      ],
+      "comment": "Barra de 10",
       "kneeSensation": null
     }
   },
