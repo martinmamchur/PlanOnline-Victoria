@@ -1,6 +1,6 @@
 {
   "app": "plan-victoria",
-  "exportedAt": "2026-08-13T22:01:45.450Z",
+  "exportedAt": "2026-08-14T22:59:18.470Z",
   "planStart": "",
   "logData": {
     "w4_d2_C__log1": {
@@ -862,6 +862,60 @@
       ],
       "comment": "Barra de 10",
       "kneeSensation": null
+    },
+    "w7_d4_C__log3": {
+      "sets": [
+        {
+          "kg": "20",
+          "reps": "15"
+        },
+        {
+          "kg": "20",
+          "reps": "15"
+        }
+      ],
+      "kneeSensation": null,
+      "comment": "Rep:\n#serie 1: 15. 10’ descanso. 5 reps. 10’. 5 reps y descanso 10’. 5 reps. 10’. 5 reps. 10’. 5 reps. \n\nDescanso 45’\n\nRep 2"
+    },
+    "w7_d4_B__log0": {
+      "sets": [
+        {
+          "kg": "20",
+          "reps": "12"
+        },
+        {
+          "kg": "22",
+          "reps": "10"
+        },
+        {
+          "kg": "22",
+          "reps": "10"
+        },
+        {
+          "kg": "22",
+          "reps": "10"
+        }
+      ],
+      "comment": "",
+      "kneeSensation": null
+    },
+    "w7_d4_C__log2": {
+      "sets": [
+        {
+          "kg": "31,8",
+          "reps": "20"
+        },
+        {
+          "kg": "31,8",
+          "reps": ""
+        },
+        {
+          "kg": "31,8",
+          "reps": ""
+        }
+      ],
+      "comment": "",
+      "kneeSensation": null
     }
   },
   "videos": {
@@ -950,6 +1004,7 @@
     "calentamiento__core3": "https://youtube.com/shorts/PJa3GBk1GA4?feature=share"
   },
   "sessionDone": {
-    "w7_d2__done": true
+    "w7_d2__done": true,
+    "w7_d4__done": true
   }
 }
