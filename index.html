@@ -187,9 +187,26 @@ input::placeholder,textarea::placeholder{color:var(--faint);}
 #student-name-input{font-size:19px;font-weight:700;color:var(--accent);background:var(--surface);
   border:1px solid var(--accent);border-radius:5px;padding:2px 8px;text-transform:uppercase;
   min-width:160px;display:none;}
+
+.video-modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.88);z-index:9999;display:none;align-items:center;justify-content:center;padding:20px;}
+.video-modal-overlay.active{display:flex;}
+.video-modal-content{position:relative;width:100%;max-width:640px;}
+.video-modal-close{position:absolute;top:-42px;right:0;background:none;border:1px solid var(--lime);color:var(--lime);border-radius:7px;padding:6px 14px;font-size:16px;cursor:pointer;font-family:inherit;}
+.video-modal-iframe-wrap{position:relative;width:100%;padding-top:56.25%;border-radius:10px;overflow:hidden;background:#000;}
+.video-modal-iframe-wrap.vertical{padding-top:0;height:78vh;max-width:340px;margin:0 auto;}
+#video-modal-iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:none;}
 </style>
 </head>
 <body>
+
+<div id="video-modal-overlay" class="video-modal-overlay" onclick="if(event.target===this) closeVideoModal()">
+  <div class="video-modal-content">
+    <button class="video-modal-close" onclick="closeVideoModal()">✕ Cerrar</button>
+    <div id="video-modal-iframe-wrap" class="video-modal-iframe-wrap">
+      <iframe id="video-modal-iframe" src="" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+    </div>
+  </div>
+</div>
 
 <div id="header">
   <div id="header-top">
@@ -835,7 +852,7 @@ function renderSession(week, dayIdx, session) {
       playBtn.style.display = vidInput.value.trim() ? 'inline-block' : 'none';
     }
     playBtn.addEventListener('click', function() {
-      if (vidInput.value.trim()) window.open(vidInput.value.trim(), '_blank');
+      if (vidInput.value.trim()) openVideoModal(vidInput.value.trim());
     });
 
     vidInput.addEventListener('input', function() {
@@ -915,6 +932,25 @@ function isVertical(raw) {
   return raw.includes('/shorts/') || raw.includes('shorts');
 }
 
+function openVideoModal(url){
+  if(!url || !url.trim()){ return; }
+  const embedUrl = getEmbedUrl(url);
+  if(!embedUrl){ window.open(url, '_blank'); return; } // fallback si no es un link reconocible
+  const overlay = document.getElementById('video-modal-overlay');
+  const iframe = document.getElementById('video-modal-iframe');
+  const wrap = document.getElementById('video-modal-iframe-wrap');
+  iframe.src = embedUrl;
+  wrap.classList.toggle('vertical', isVertical(url));
+  overlay.classList.add('active');
+}
+function closeVideoModal(){
+  const overlay = document.getElementById('video-modal-overlay');
+  const iframe = document.getElementById('video-modal-iframe');
+  overlay.classList.remove('active');
+  iframe.src = '';
+}
+document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeVideoModal(); });
+
 function renderExCard(week, dayIdx, phase, idx, exObj) {
   const dayKey = `w${week}_d${dayIdx}_${phase}`;
   const logKey = `${dayKey}__log${idx}`;
@@ -992,7 +1028,7 @@ function renderExCard(week, dayIdx, phase, idx, exObj) {
     playBtn.style.display = vidInput.value.trim() ? 'inline-block' : 'none';
   }
   playBtn.addEventListener('click', function() {
-    if (vidInput.value.trim()) window.open(vidInput.value.trim(), '_blank');
+    if (vidInput.value.trim()) openVideoModal(vidInput.value.trim());
   });
 
   vidInput.addEventListener('input', function() {
