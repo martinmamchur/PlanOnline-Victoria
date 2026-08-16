@@ -202,17 +202,15 @@ input::placeholder,textarea::placeholder{color:var(--faint);}
       <div class="mono" id="header-meta">PLAN DE PREPARACIÓN · <span id="date-range">—</span></div>
     </div>
     <div id="header-btns">
-      <button class="hbtn hbtn-lime" onclick="exportProgress()">⬇ EXPORTAR PROGRESO</button>
-      <button class="hbtn hbtn-dim" onclick="triggerImport()">⬆ IMPORTAR</button>
-      <button class="hbtn" onclick="ghSaveProgress()" style="border-color:#4ade80;color:#4ade80;">☁ SINCRONIZAR</button>
-      <button class="hbtn" onclick="reloadProgress()" style="border-color:#60a5fa;color:#60a5fa;">🔄 ACTUALIZAR</button>
-      <input id="import-file" type="file" accept=".json,application/json" style="display:none" onchange="handleImport(event)"/>
+      <button class="hbtn" onclick="ghSaveProgress()" style="border-color:var(--lime);color:var(--lime);">☁ SINCRONIZAR</button>
+      <button class="hbtn" onclick="reloadProgress()" style="border-color:var(--accent);color:var(--accent);">🔄 ACTUALIZAR</button>
+      <button id="readonly-toggle-btn" class="hbtn" onclick="toggleReadOnlyMode()">👁 MODO LECTURA: OFF</button>
       <div id="sync-msg" style="font-size:12px;margin-top:4px;"></div>
       <div id="token-ui" style="display:none;margin-top:8px;padding:12px;background:var(--surface);border:1px solid var(--border);border-radius:8px;">
         <div style="font-size:11px;color:var(--dim);margin-bottom:6px;letter-spacing:.08em;text-transform:uppercase;">Token de GitHub para sincronizar</div>
         <div style="display:flex;gap:8px;">
           <input id="token-input" type="password" placeholder="ghp_..." style="flex:1;padding:8px;border-radius:6px;border:1px solid var(--border);background:#1a1a1a;color:#fff;font-size:13px;"/>
-          <button onclick="saveTokenAndClose()" style="padding:8px 14px;border-radius:6px;border:1px solid #4ade80;background:transparent;color:#4ade80;font-size:13px;cursor:pointer;">Guardar</button>
+          <button onclick="saveTokenAndClose()" style="padding:8px 14px;border-radius:6px;border:1px solid var(--lime);background:transparent;color:var(--lime);font-size:13px;cursor:pointer;">Guardar</button>
           <button onclick="showTokenUI()" style="padding:8px 14px;border-radius:6px;border:1px solid var(--border);background:transparent;color:var(--dim);font-size:13px;cursor:pointer;">Cancelar</button>
         </div>
         <div style="font-size:11px;color:var(--dim);margin-top:6px;">El token se guarda solo en este navegador.</div>
@@ -220,7 +218,7 @@ input::placeholder,textarea::placeholder{color:var(--faint);}
       <button class="hbtn hbtn-dim" onclick="resetAll()">REINICIAR DATOS</button>
     </div>
   </div>
-  <div id="import-msg"></div>
+  <div id="readonly-banner" style="display:none;margin-top:10px;padding:9px 12px;border-radius:7px;font-size:12.5px;background:var(--accent-dim);border:1px solid var(--accent);color:var(--accent);">Modo lectura activado — no se puede editar nada en este dispositivo, y no se sube nada a la nube por accidente.</div>
   <div id="progress-bar-wrap">
     <div id="progress-label">
       <div class="mono" style="font-size:11px;color:var(--faint);letter-spacing:.1em;">PROGRESO DEL PLAN</div>
@@ -577,7 +575,35 @@ function save() {
   storageSet('logData', state.logData);
   storageSet('videos', state.videos); // cache local como backup
   storageSet('sessionDone', state.sessionDone);
+  scheduleAutoSync();
 }
+
+// ── Modo lectura (para el coach, evita pisar datos por error) ─────────────
+function isReadOnlyMode() { return localStorage.getItem('victoria_readonly_mode') === '1'; }
+function setReadOnlyMode(v) { localStorage.setItem('victoria_readonly_mode', v ? '1' : '0'); }
+function toggleReadOnlyMode() {
+  setReadOnlyMode(!isReadOnlyMode());
+  renderHeader(); renderPlan();
+}
+
+// ── Autoguardado + auto-sincronización con GitHub (debounce) ──────────────
+var autoSyncTimer = null;
+function scheduleAutoSync() {
+  if (!getProgressToken()) return; // sin token todavía, no forzamos nada
+  if (autoSyncTimer) clearTimeout(autoSyncTimer);
+  autoSyncTimer = setTimeout(function() {
+    ghSaveProgress();
+  }, 2000);
+}
+function flushAutoSync() {
+  if (!getProgressToken()) return;
+  if (autoSyncTimer) { clearTimeout(autoSyncTimer); autoSyncTimer = null; }
+  ghSaveProgress();
+}
+document.addEventListener('visibilitychange', function() {
+  if (document.visibilityState === 'hidden') flushAutoSync();
+});
+window.addEventListener('pagehide', flushAutoSync);
 
 // Guardar un video en GitHub y en cache local
 async function saveVideo(exName, url) {
@@ -659,6 +685,16 @@ function renderHeader() {
     const seg = h('div', {className: 'prog-seg' + (i <= cw ? ' done' : '')});
     segs.appendChild(seg);
   }
+
+  const roBtn = document.getElementById('readonly-toggle-btn');
+  const roBanner = document.getElementById('readonly-banner');
+  if (roBtn) {
+    const ro = isReadOnlyMode();
+    roBtn.textContent = ro ? '👁 MODO LECTURA: ON' : '👁 MODO LECTURA: OFF';
+    roBtn.style.borderColor = ro ? 'var(--accent)' : '';
+    roBtn.style.color = ro ? 'var(--accent)' : '';
+    if (roBanner) roBanner.style.display = ro ? 'block' : 'none';
+  }
 }
 
 /* ============================================================
@@ -724,10 +760,12 @@ function renderSession(week, dayIdx, session) {
   const doneBtn = h('button', {
     className:'done-btn ' + (isDone ? 'done' : 'undone'),
     onclick: () => {
+      if (isReadOnlyMode()) return;
       state.sessionDone[doneKey] = !state.sessionDone[doneKey];
       save(); renderPlan(); renderHeader();
     }
   }, isDone ? '✓ Completada' : 'Marcar completada');
+  doneBtn.disabled = isReadOnlyMode();
 
   const titleRow = h('div', {className:'session-header'});
   titleRow.appendChild(h('div', {id:'session-title'}, session.dayFocus));
@@ -781,6 +819,7 @@ function renderSession(week, dayIdx, session) {
     vidInput.placeholder = 'Pegar link de YouTube Shorts o Vimeo...';
     vidInput.value = state.videos[vidKey] || '';
     vidInput.style.flex = '1';
+    vidInput.disabled = isReadOnlyMode();
 
     var savedSpan = document.createElement('span');
     savedSpan.className = 'video-saved';
@@ -818,7 +857,9 @@ function renderSession(week, dayIdx, session) {
     comment.className = 'log-comment';
     comment.placeholder = 'Comentarios...';
     comment.value = (state.logData[commentKey] && state.logData[commentKey].comment) || '';
+    comment.disabled = isReadOnlyMode();
     comment.addEventListener('input', function() {
+      if (isReadOnlyMode()) return;
       state.logData[commentKey] = { comment: comment.value }; save();
     });
     wuCard.appendChild(comment);
@@ -895,7 +936,9 @@ function renderExCard(week, dayIdx, phase, idx, exObj) {
   nameInput.type = 'text';
   nameInput.value = savedName;
   nameInput.style.cssText = 'background:transparent;border:none;border-bottom:1px dashed var(--faint);color:var(--text);font-weight:700;font-size:15.5px;width:100%;outline:none;padding:2px 0;min-width:0;';
+  nameInput.disabled = isReadOnlyMode();
   nameInput.addEventListener('input', function() {
+    if (isReadOnlyMode()) return;
     state.logData[nameKey] = { v: nameInput.value }; save();
   });
   nameWrap.appendChild(nameInput);
@@ -933,6 +976,7 @@ function renderExCard(week, dayIdx, phase, idx, exObj) {
   vidInput.placeholder = 'Pegar link de YouTube o Vimeo...';
   vidInput.value = state.videos[vidKey] || '';
   vidInput.style.flex = '1';
+  vidInput.disabled = isReadOnlyMode();
 
   var savedSpan = document.createElement('span');
   savedSpan.className = 'video-saved';
@@ -980,7 +1024,9 @@ function renderExCard(week, dayIdx, phase, idx, exObj) {
         btn.style.background = k.color + '22';
         btn.style.color = k.color;
       }
+      btn.disabled = isReadOnlyMode();
       btn.addEventListener('click', () => {
+        if (isReadOnlyMode()) return;
         const e2 = state.logData[logKey] || {sets:setsArr, comment:'', kneeSensation:null};
         e2.kneeSensation = k.val;
         state.logData[logKey] = e2;
@@ -1019,7 +1065,10 @@ function renderExCard(week, dayIdx, phase, idx, exObj) {
     );
     const kgInput = h('input', {type:'text', inputmode:'decimal', placeholder:'—', className:'log-input', value:s.kg||''});
     const repsInput = h('input', {type:'text', inputmode:'numeric', placeholder:'—', className:'log-input wide', value:s.reps||''});
+    kgInput.disabled = isReadOnlyMode();
+    repsInput.disabled = isReadOnlyMode();
     function updateSet() {
+      if (isReadOnlyMode()) return;
       const e2 = state.logData[logKey] || {sets:[...setsArr], comment:'', kneeSensation: entry.kneeSensation ?? null};
       if (!e2.sets[i]) e2.sets[i] = {};
       e2.sets[i].kg = kgInput.value;
@@ -1038,7 +1087,9 @@ function renderExCard(week, dayIdx, phase, idx, exObj) {
 
   const comment = h('textarea', {className:'log-comment', placeholder:'Comentarios (sensación, dolor, energía, técnica...)'});
   comment.value = entry.comment || '';
+  comment.disabled = isReadOnlyMode();
   comment.addEventListener('input', () => {
+    if (isReadOnlyMode()) return;
     const e2 = state.logData[logKey] || {sets:[...setsArr], kneeSensation: entry.kneeSensation ?? null};
     e2.comment = comment.value;
     state.logData[logKey] = e2;
@@ -1196,7 +1247,7 @@ const GUIDE_SECTIONS = [
     <li>Registrá kg y repeticiones en cada serie — se guarda automáticamente en este dispositivo.</li>
     <li>Pegá el link de video de cada ejercicio si tu entrenador te lo comparte.</li></ul>`,
     d.innerHTML += `<div style="margin-top:12px;padding:12px;background:var(--surface2);border-radius:8px;border-left:3px solid var(--lime)">
-    <strong style="color:var(--text)">Cómo enviarle tu progreso a tu entrenador:</strong> tocá <strong>"⬇ Exportar progreso"</strong> en el encabezado → se descarga un archivo .json → enviáselo por WhatsApp o mail. Hacé esto cada 1-2 semanas.</div>`;
+    <strong style="color:var(--text)">Cómo ve tu entrenador tu progreso:</strong> no hace falta que mandes nada — todo se guarda solo en la nube a medida que vas cargando pesos, reps y comentarios. Tu entrenador lo ve directo desde su celular tocando <strong>"🔄 ACTUALIZAR"</strong>.</div>`;
     return d;
   }},
 ];
@@ -1243,6 +1294,7 @@ function switchTab(tab) {
    NAME EDITING
    ============================================================ */
 function startEditName() {
+  if (isReadOnlyMode()) return;
   const display = document.getElementById('student-name-display');
   const input = document.getElementById('student-name-input');
   input.value = state.studentName;
@@ -1340,70 +1392,8 @@ function saveTokenAndClose(){
 }
 
 /* ============================================================ EXPORT / IMPORT */
-function exportProgress() {
-  var payload = {
-    app: 'plan-piernas-12-semanas-victoria',
-    exportedAt: new Date().toISOString(),
-    studentName: state.studentName,
-    planStart: state.planStart,
-    logData: state.logData,
-    videos: state.videos,
-    sessionDone: state.sessionDone,
-  };
-  try {
-    var json = JSON.stringify(payload, null, 2);
-    var blob = new Blob([json], {type:'application/json'});
-    var url = URL.createObjectURL(blob);
-    var a = document.createElement('a');
-    var safeName = (state.studentName||'alumna').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/(^-|-$)/g,'');
-    a.href = url;
-    a.download = 'progreso-' + safeName + '-' + new Date().toISOString().slice(0,10) + '.json';
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    setTimeout(function() { URL.revokeObjectURL(url); }, 2000);
-  } catch(e) {
-    alert('No se pudo generar el archivo. Abrí el plan en Safari e intentá de nuevo.');
-  }
-}
-function triggerImport() {
-  showImportMsg('', '');
-  document.getElementById('import-file').click();
-}
-function handleImport(e) {
-  var file = e.target.files && e.target.files[0];
-  e.target.value = '';
-  if (!file) return;
-  var reader = new FileReader();
-  reader.onload = function(ev) {
-    try {
-      var parsed = JSON.parse(ev.target.result);
-      if (!parsed || !('logData' in parsed) || !('sessionDone' in parsed)) {
-        showImportMsg('Este archivo no tiene el formato esperado de un export de este plan.', 'err'); return;
-      }
-      var name = parsed.studentName ? ' de "' + parsed.studentName + '"' : '';
-      var date = parsed.exportedAt ? ' (' + new Date(parsed.exportedAt).toLocaleDateString('es-ES') + ')' : '';
-      if (!confirm('Vas a reemplazar los datos actuales con los del archivo' + name + date + '. ¿Continuar?')) return;
-      state.logData = parsed.logData || {};
-      state.videos = parsed.videos || {};
-      state.sessionDone = parsed.sessionDone || {};
-      if (parsed.studentName) state.studentName = parsed.studentName;
-      if (parsed.planStart) state.planStart = parsed.planStart;
-      save(); renderHeader(); switchTab(state.tab);
-      showImportMsg('Progreso importado correctamente.', 'ok');
-    } catch(err) {
-      showImportMsg('No se pudo leer el archivo. Asegurate de que sea el .json exportado desde este plan.', 'err');
-    }
-  };
-  reader.readAsText(file);
-}
-
-function showImportMsg(text, type) {
-  const el = document.getElementById('import-msg');
-  el.textContent = text;
-  el.className = text ? type : '';
-}
 function resetAll() {
+  if (isReadOnlyMode()) { showSyncMsg('Desactivá el modo lectura para poder reiniciar datos','err'); return; }
   if (!confirm('Esto borrará todo el registro guardado (series, videos, sesiones completadas y nombre). ¿Seguro?')) return;
   state.logData = {}; state.videos = {}; state.sessionDone = {};
   state.studentName = 'Victoria'; state.planStart = '';
