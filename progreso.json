@@ -1,6 +1,6 @@
 {
   "app": "plan-victoria",
-  "exportedAt": "2026-08-18T23:08:21.702Z",
+  "exportedAt": "2026-08-18T23:08:28.303Z",
   "planStart": "",
   "logData": {
     "w4_d2_C__log1": {
@@ -1219,6 +1219,7 @@
   },
   "sessionDone": {
     "w7_d2__done": true,
-    "w7_d4__done": true
+    "w7_d4__done": true,
+    "w8_d0__done": true
   }
 }
