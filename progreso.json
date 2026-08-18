@@ -1,6 +1,6 @@
 {
   "app": "plan-victoria",
-  "exportedAt": "2026-08-18T22:19:19.614Z",
+  "exportedAt": "2026-08-18T22:19:28.669Z",
   "planStart": "",
   "logData": {
     "w4_d2_C__log1": {
@@ -990,7 +990,7 @@
           "reps": ""
         }
       ],
-      "comment": "Barra 10\n",
+      "comment": "Barra 10\n20 kg de cada lado",
       "kneeSensation": null
     }
   },
