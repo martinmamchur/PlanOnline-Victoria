@@ -1,6 +1,6 @@
 {
   "app": "plan-victoria",
-  "exportedAt": "2026-08-18T22:32:58.967Z",
+  "exportedAt": "2026-08-18T22:37:28.995Z",
   "planStart": "",
   "logData": {
     "w4_d2_C__log1": {
@@ -991,6 +991,28 @@
         }
       ],
       "comment": "Barra 10\n20 kg de cada lado",
+      "kneeSensation": null
+    },
+    "w7_d0_B__log0": {
+      "sets": [
+        {
+          "kg": "",
+          "reps": "1"
+        },
+        {
+          "kg": "",
+          "reps": ""
+        },
+        {
+          "kg": "",
+          "reps": ""
+        },
+        {
+          "kg": "",
+          "reps": ""
+        }
+      ],
+      "comment": "",
       "kneeSensation": null
     }
   },
