@@ -1,6 +1,6 @@
 {
   "app": "plan-victoria",
-  "exportedAt": "2026-08-27T22:03:18.854Z",
+  "exportedAt": "2026-08-27T22:04:26.485Z",
   "planStart": "",
   "logData": {
     "w4_d2_C__log1": {
@@ -1170,6 +1170,24 @@
         {
           "kg": "18,1",
           "reps": "8"
+        }
+      ],
+      "comment": "",
+      "kneeSensation": null
+    },
+    "w8_d3_C__log0": {
+      "sets": [
+        {
+          "kg": "7,5",
+          "reps": "10"
+        },
+        {
+          "kg": "",
+          "reps": ""
+        },
+        {
+          "kg": "",
+          "reps": ""
         }
       ],
       "comment": "",
