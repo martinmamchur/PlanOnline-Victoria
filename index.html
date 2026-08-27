@@ -221,6 +221,7 @@ input::placeholder,textarea::placeholder{color:var(--faint);}
     <div id="header-btns">
       <button class="hbtn" onclick="ghSaveProgress()" style="border-color:var(--lime);color:var(--lime);">☁ SINCRONIZAR</button>
       <button class="hbtn" onclick="reloadProgress()" style="border-color:var(--accent);color:var(--accent);">🔄 ACTUALIZAR</button>
+      <button class="hbtn" onclick="showTokenUI()" style="border-color:var(--dim);color:var(--dim);">🔑 TOKEN</button>
       <button id="readonly-toggle-btn" class="hbtn" onclick="toggleReadOnlyMode()">👁 MODO LECTURA: OFF</button>
       <div id="sync-msg" style="font-size:12px;margin-top:4px;"></div>
       <div id="token-ui" style="display:none;margin-top:8px;padding:12px;background:var(--surface);border:1px solid var(--border);border-radius:8px;">
@@ -592,6 +593,7 @@ function save() {
   storageSet('logData', state.logData);
   storageSet('videos', state.videos); // cache local como backup
   storageSet('sessionDone', state.sessionDone);
+  storageSet('lastLocalSave', new Date().toISOString());
   scheduleAutoSync();
 }
 
@@ -1377,6 +1379,7 @@ async function reloadProgress(){
       storageSet('logData', state.logData);
       storageSet('sessionDone', state.sessionDone);
       storageSet('planStart', state.planStart);
+      storageSet('lastLocalSave', ghProgress.exportedAt || new Date().toISOString());
       renderHeader();
       renderPlan();
       showSyncMsg('✓ Progreso actualizado','ok');
@@ -1401,6 +1404,7 @@ async function ghSaveProgress(){
     const body={message:'Progreso Victoria — '+new Date().toLocaleString(),content,...(sha?{sha}:{})};
     const r=await fetch(apiUrl,{method:'PUT',headers,body:JSON.stringify(body)});
     if(r.ok){ showSyncMsg('☁ Sincronizado en GitHub','ok'); }
+    else if(r.status===401||r.status===403){ showSyncMsg('✗ Tu token venció o es inválido — pegá uno nuevo','err'); showTokenUI(); }
     else{ showSyncMsg('✗ Error al sincronizar ('+r.status+')','err'); }
   }catch(e){ showSyncMsg('✗ Error al sincronizar','err'); }
 }
@@ -1459,16 +1463,22 @@ async function _boot() {
     }
   } catch(e) {}
 
-  // GitHub es la fuente de verdad del progreso
+  // Comparamos fecha: si lo local es más nuevo (ej. la sync anterior falló por token vencido), no lo pisamos
   try {
     const ghProgress = await ghLoadProgress();
     if (ghProgress && ghProgress.logData) {
-      state.logData = ghProgress.logData;
-      state.sessionDone = ghProgress.sessionDone || {};
-      if(ghProgress.planStart) state.planStart = ghProgress.planStart;
-      storageSet('logData', state.logData);
-      storageSet('sessionDone', state.sessionDone);
-      storageSet('planStart', state.planStart);
+      const localTs = storageGet('lastLocalSave', null);
+      const cloudTs = ghProgress.exportedAt || null;
+      const cloudIsNewer = !localTs || (cloudTs && new Date(cloudTs) > new Date(localTs));
+      if (cloudIsNewer) {
+        state.logData = ghProgress.logData;
+        state.sessionDone = ghProgress.sessionDone || {};
+        if(ghProgress.planStart) state.planStart = ghProgress.planStart;
+        storageSet('logData', state.logData);
+        storageSet('sessionDone', state.sessionDone);
+        storageSet('planStart', state.planStart);
+        storageSet('lastLocalSave', cloudTs || new Date().toISOString());
+      }
     }
   } catch(e) {}
 
