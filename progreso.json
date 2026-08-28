@@ -1,6 +1,6 @@
 {
   "app": "plan-victoria",
-  "exportedAt": "2026-08-28T22:48:04.772Z",
+  "exportedAt": "2026-08-28T22:48:10.005Z",
   "planStart": "",
   "logData": {
     "w4_d2_C__log1": {
@@ -1262,7 +1262,7 @@
           "reps": ""
         },
         {
-          "kg": "",
+          "kg": "22",
           "reps": ""
         }
       ],
