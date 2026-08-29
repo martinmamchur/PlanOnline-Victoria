@@ -1,6 +1,6 @@
 {
   "app": "plan-victoria",
-  "exportedAt": "2026-08-29T20:12:34.879Z",
+  "exportedAt": "2026-08-29T20:15:08.397Z",
   "planStart": "",
   "logData": {
     "w4_d2_C__log1": {
@@ -1034,7 +1034,7 @@
           "reps": "10"
         }
       ],
-      "comment": "",
+      "comment": "Rep del día lunes: peso de 10 kg en cada lado en la smith",
       "kneeSensation": null
     },
     "w8_d0_B__log1": {
