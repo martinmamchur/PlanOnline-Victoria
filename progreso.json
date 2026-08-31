@@ -1,6 +1,6 @@
 {
   "app": "plan-victoria",
-  "exportedAt": "2026-08-31T22:53:28.297Z",
+  "exportedAt": "2026-08-31T22:53:33.293Z",
   "planStart": "",
   "logData": {
     "w4_d2_C__log1": {
@@ -1371,11 +1371,11 @@
         },
         {
           "kg": "10",
-          "reps": ""
+          "reps": "6"
         },
         {
-          "kg": "",
-          "reps": ""
+          "kg": "10",
+          "reps": "6"
         }
       ],
       "comment": "Barra de 10 y 10 de cada lado ",
