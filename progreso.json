@@ -1,6 +1,6 @@
 {
   "app": "plan-victoria",
-  "exportedAt": "2026-09-01T21:32:18.524Z",
+  "exportedAt": "2026-09-01T21:32:24.526Z",
   "planStart": "",
   "logData": {
     "w4_d2_C__log1": {
@@ -1446,7 +1446,7 @@
           "reps": ""
         }
       ],
-      "comment": "Izquierda 12/9\n12/5",
+      "comment": "Izquierda 12/9\nIzquierda 12/5",
       "kneeSensation": null
     }
   },
