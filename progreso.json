@@ -1,6 +1,6 @@
 {
   "app": "plan-victoria",
-  "exportedAt": "2026-09-01T22:16:50.063Z",
+  "exportedAt": "2026-09-01T22:17:56.401Z",
   "planStart": "",
   "logData": {
     "w4_d2_C__log1": {
@@ -1508,8 +1508,8 @@
           "reps": "6"
         },
         {
-          "kg": "",
-          "reps": ""
+          "kg": "5",
+          "reps": "6"
         }
       ],
       "comment": "Dos mancuernas de 5 ",
