@@ -1,6 +1,6 @@
 {
   "app": "plan-victoria",
-  "exportedAt": "2026-09-02T23:38:51.289Z",
+  "exportedAt": "2026-09-02T23:41:56.916Z",
   "planStart": "",
   "logData": {
     "w4_d2_C__log1": {
@@ -1644,6 +1644,20 @@
       ],
       "kneeSensation": null,
       "comment": "una serie son 15>bajo peso>15>bajo peso>15"
+    },
+    "w9_d2_C__log1": {
+      "sets": [
+        {
+          "kg": "",
+          "reps": ""
+        },
+        {
+          "kg": "",
+          "reps": ""
+        }
+      ],
+      "kneeSensation": null,
+      "comment": "elijo un peso con el que me salgan 12 reps justas también  y haces: \n\n12>descanso 10 seg>6>descanso 10 seg>6"
     }
   },
   "videos": {
