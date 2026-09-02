@@ -1,6 +1,6 @@
 {
   "app": "plan-victoria",
-  "exportedAt": "2026-09-02T23:36:55.189Z",
+  "exportedAt": "2026-09-02T23:38:37.174Z",
   "planStart": "",
   "logData": {
     "w4_d2_C__log1": {
@@ -1630,6 +1630,20 @@
       ],
       "comment": "",
       "kneeSensation": 2
+    },
+    "w9_d2_C__log2": {
+      "sets": [
+        {
+          "kg": "",
+          "reps": ""
+        },
+        {
+          "kg": "",
+          "reps": ""
+        }
+      ],
+      "kneeSensation": null,
+      "comment": "Exacto! O sea una serie son 15>bajo peso>15>bajo peso>15"
     }
   },
   "videos": {
