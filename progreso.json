@@ -1,6 +1,6 @@
 {
   "app": "plan-victoria",
-  "exportedAt": "2026-09-02T23:13:26.753Z",
+  "exportedAt": "2026-09-02T23:16:18.966Z",
   "planStart": "",
   "logData": {
     "w4_d2_C__log1": {
@@ -1608,6 +1608,28 @@
       ],
       "comment": "En barra. Kilo en cada lado ",
       "kneeSensation": null
+    },
+    "w9_d2_B__log1": {
+      "sets": [
+        {
+          "kg": "30",
+          "reps": ""
+        },
+        {
+          "kg": "",
+          "reps": ""
+        },
+        {
+          "kg": "",
+          "reps": ""
+        },
+        {
+          "kg": "",
+          "reps": ""
+        }
+      ],
+      "comment": "",
+      "kneeSensation": 2
     }
   },
   "videos": {
