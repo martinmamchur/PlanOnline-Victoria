@@ -764,12 +764,12 @@ function renderExerciseList(frag, exercises, week, dayIdx, phase) {
   let i = 0;
   while (i < exercises.length) {
     const ex = exercises[i];
-    const ssGroup = isSS(ex.name);
+    const ssGroup = getSupersetGroup(ex.name); // null si no es SS, "A1"/"A2" etc si lo es
 
     if (ssGroup) {
       // Recopilar todos los ejercicios de esta superserie
       const groupExs = [];
-      while (i < exercises.length && isSS(exercises[i].name) && getSupersetGroup(exercises[i].name) === ssGroup) {
+      while (i < exercises.length && getSupersetGroup(exercises[i].name) === ssGroup) {
         groupExs.push({ ex: exercises[i], idx: i });
         i++;
       }
