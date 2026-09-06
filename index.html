@@ -28,12 +28,12 @@ input::placeholder,textarea::placeholder{color:var(--faint);}
 #header-btns{display:flex;gap:6px;flex-wrap:wrap;}
 #import-msg{margin-top:10px;padding:9px 12px;border-radius:7px;font-size:12.5px;display:none;}
 #import-msg.ok{background:rgba(200,255,61,.08);border:1px solid var(--lime);color:var(--lime);display:block;}
-#import-msg.err{background:var(--accent-dim);border:1px solid var(--accent);color:var(--accent);display:block;}
+#import-msg.err{background:var(--accent-dim);border:1px solid var(--accent);color:var(--lime);display:block;}
 #progress-bar-wrap{margin-top:16px;}
 #progress-label{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px;}
 #progress-segs{display:flex;gap:4px;}
 .prog-seg{flex:1;height:5px;border-radius:2px;background:var(--surface3);}
-.prog-seg.done{background:var(--accent);}
+.prog-seg.done{background:var(--lime);}
 #main-tabs{display:flex;gap:8px;margin-top:18px;flex-wrap:wrap;}
 #content{padding:20px 18px 40px;}
 
@@ -46,11 +46,11 @@ input::placeholder,textarea::placeholder{color:var(--faint);}
 #week-selector{display:flex;gap:6px;overflow-x:auto;padding-bottom:4px;margin-bottom:18px;}
 .week-btn{min-width:44px;padding:9px 0;border-radius:7px;font-size:13px;font-weight:700;
   border:1px solid var(--border);background:var(--surface);color:var(--dim);transition:all .15s;}
-.week-btn.active{border-color:var(--accent);background:var(--accent);color:#04202E;}
+.week-btn.active{border-color:var(--lime);background:var(--lime);color:#04202E;}
 
 /* Block card */
 #block-card{background:var(--surface);border-left:3px solid var(--accent);border-radius:8px;padding:14px 16px;margin-bottom:18px;}
-#block-label{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--accent);font-weight:700;
+#block-label{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--lime);font-weight:700;
   letter-spacing:.06em;text-transform:uppercase;margin-bottom:4px;}
 #block-focus{font-size:14.5px;color:var(--text);}
 
@@ -59,7 +59,7 @@ input::placeholder,textarea::placeholder{color:var(--faint);}
 .day-btn{padding:9px 16px;border-radius:7px;white-space:nowrap;font-size:13px;font-weight:600;
   display:flex;align-items:center;gap:7px;border:1px solid var(--border);background:var(--surface);
   color:var(--dim);transition:all .15s;}
-.day-btn.active{border-color:var(--accent);background:var(--accent);color:#04202E;}
+.day-btn.active{border-color:var(--lime);background:var(--lime);color:#04202E;}
 .day-dot{width:6px;height:6px;border-radius:50%;background:var(--faint);flex-shrink:0;}
 .day-btn.active .day-dot{background:#fff;}
 
@@ -67,9 +67,9 @@ input::placeholder,textarea::placeholder{color:var(--faint);}
 #session-badge{display:flex;justify-content:flex-end;margin-bottom:10px;}
 .badge{display:inline-block;padding:4px 10px;border-radius:5px;font-family:'JetBrains Mono',monospace;
   font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;}
-.badge-accent{background:var(--accent-dim);color:var(--accent);border:1px solid var(--accent);}
+.badge-accent{background:var(--accent-dim);color:var(--lime);border:1px solid var(--accent);}
 .badge-upper{background:rgba(200,255,61,.08);color:var(--lime);border:1px solid var(--lime);}
-.badge-leg{background:var(--accent-dim);color:var(--accent);border:1px solid var(--accent);}
+.badge-leg{background:var(--accent-dim);color:var(--lime);border:1px solid var(--accent);}
 #session-title{font-size:26px;font-weight:700;line-height:1.1;margin-bottom:16px;}
 .coach-note{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:14px 16px;margin-bottom:20px;font-size:13.5px;line-height:1.6;}
 .coach-note strong{color:var(--lime);}
@@ -92,7 +92,7 @@ input::placeholder,textarea::placeholder{color:var(--faint);}
 .pill{display:inline-block;padding:4px 10px;border-radius:5px;font-family:'JetBrains Mono',monospace;
   font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
   border:1px solid var(--border);color:var(--dim);}
-.pill-accent{border-color:var(--accent);color:var(--accent);background:var(--accent-dim);}
+.pill-accent{border-color:var(--lime);color:var(--lime);background:var(--accent-dim);}
 .ex-rest{font-size:12.5px;color:var(--dim);}
 .ex-note-knee{font-size:12.5px;color:var(--knee);margin-top:8px;padding:9px 11px;
   background:rgba(251,146,60,.06);border-radius:7px;border-left:3px solid var(--knee);line-height:1.6;}
@@ -103,7 +103,7 @@ input::placeholder,textarea::placeholder{color:var(--faint);}
 .video-row{display:flex;align-items:center;gap:6px;margin-top:8px;}
 .video-input{flex:1;min-width:0;font-size:12.5px;padding:7px 9px;
   border:1px solid var(--border);border-radius:6px;background:var(--surface2);color:var(--text);}
-.video-link{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--accent);
+.video-link{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--lime);
   text-decoration:none;border:1px solid var(--accent);border-radius:6px;padding:6px 9px;
   letter-spacing:.03em;white-space:nowrap;}
 .video-saved{font-size:11px;color:var(--lime);}
@@ -150,7 +150,7 @@ input::placeholder,textarea::placeholder{color:var(--faint);}
 .stat-num{font-size:32px;font-weight:800;line-height:1;font-family:system-ui,sans-serif;}
 .stat-label{font-size:12px;color:var(--dim);margin-top:4px;}
 .block-bar{height:6px;border-radius:3px;background:var(--surface3);overflow:hidden;margin-top:8px;}
-.block-bar-fill{height:100%;background:var(--accent);border-radius:3px;}
+.block-bar-fill{height:100%;background:var(--lime);border-radius:3px;}
 
 /* Guide */
 .guide-hero{background:var(--lime);color:#0a0a0a;border-radius:12px;padding:20px 18px;margin-bottom:18px;}
@@ -160,7 +160,7 @@ input::placeholder,textarea::placeholder{color:var(--faint);}
 .acc-header{width:100%;text-align:left;padding:14px 16px;background:transparent;border:none;
   display:flex;justify-content:space-between;align-items:center;font-size:15px;font-weight:700;
   color:var(--text);cursor:pointer;}
-.acc-toggle{color:var(--accent);font-size:18px;font-family:'JetBrains Mono',monospace;}
+.acc-toggle{color:var(--lime);font-size:18px;font-family:'JetBrains Mono',monospace;}
 .acc-body{padding:0 16px 16px;font-size:13.5px;line-height:1.7;color:var(--dim);display:none;}
 .acc-body.open{display:block;}
 .acc-body table{width:100%;border-collapse:collapse;margin-top:10px;font-size:13px;}
@@ -183,8 +183,8 @@ input::placeholder,textarea::placeholder{color:var(--faint);}
 .hbtn-dim{border:1px solid var(--border);background:transparent;color:var(--dim);}
 
 /* Student name */
-#student-name-display{color:var(--accent);cursor:pointer;border-bottom:1px dashed var(--accent);font-size:inherit;}
-#student-name-input{font-size:19px;font-weight:700;color:var(--accent);background:var(--surface);
+#student-name-display{color:var(--lime);cursor:pointer;border-bottom:1px dashed var(--accent);font-size:inherit;}
+#student-name-input{font-size:19px;font-weight:700;color:var(--lime);background:var(--surface);
   border:1px solid var(--accent);border-radius:5px;padding:2px 8px;text-transform:uppercase;
   min-width:160px;display:none;}
 
@@ -220,23 +220,13 @@ input::placeholder,textarea::placeholder{color:var(--faint);}
     </div>
     <div id="header-btns">
       <button class="hbtn" onclick="ghSaveProgress()" style="border-color:var(--lime);color:var(--lime);">☁ SINCRONIZAR</button>
-      <button class="hbtn" onclick="reloadProgress()" style="border-color:var(--accent);color:var(--accent);">🔄 ACTUALIZAR</button>
+      <button class="hbtn" onclick="reloadProgress()" style="border-color:var(--lime);color:var(--lime);">🔄 ACTUALIZAR</button>
       <button class="hbtn" onclick="showTokenUI()" style="border-color:var(--dim);color:var(--dim);">🔑 TOKEN</button>
       <button id="readonly-toggle-btn" class="hbtn" onclick="toggleReadOnlyMode()">👁 MODO LECTURA: OFF</button>
       <div id="sync-msg" style="font-size:12px;margin-top:4px;"></div>
-      <div id="token-ui" style="display:none;margin-top:8px;padding:12px;background:var(--surface);border:1px solid var(--border);border-radius:8px;">
-        <div style="font-size:11px;color:var(--dim);margin-bottom:6px;letter-spacing:.08em;text-transform:uppercase;">Token de GitHub para sincronizar</div>
-        <div style="display:flex;gap:8px;">
-          <input id="token-input" type="password" placeholder="ghp_..." style="flex:1;padding:8px;border-radius:6px;border:1px solid var(--border);background:#1a1a1a;color:#fff;font-size:13px;"/>
-          <button onclick="saveTokenAndClose()" style="padding:8px 14px;border-radius:6px;border:1px solid var(--lime);background:transparent;color:var(--lime);font-size:13px;cursor:pointer;">Guardar</button>
-          <button onclick="showTokenUI()" style="padding:8px 14px;border-radius:6px;border:1px solid var(--border);background:transparent;color:var(--dim);font-size:13px;cursor:pointer;">Cancelar</button>
-        </div>
-        <div style="font-size:11px;color:var(--dim);margin-top:6px;">El token se guarda solo en este navegador.</div>
-      </div>
-      <button class="hbtn hbtn-dim" onclick="resetAll()">REINICIAR DATOS</button>
     </div>
   </div>
-  <div id="readonly-banner" style="display:none;margin-top:10px;padding:9px 12px;border-radius:7px;font-size:12.5px;background:var(--accent-dim);border:1px solid var(--accent);color:var(--accent);">Modo lectura activado — no se puede editar nada en este dispositivo, y no se sube nada a la nube por accidente.</div>
+  <div id="readonly-banner" style="display:none;margin-top:10px;padding:9px 12px;border-radius:7px;font-size:12.5px;background:var(--accent-dim);border:1px solid var(--accent);color:var(--lime);">Modo lectura activado — no se puede editar nada en este dispositivo, y no se sube nada a la nube por accidente.</div>
   <div id="progress-bar-wrap">
     <div id="progress-label">
       <div class="mono" style="font-size:11px;color:var(--faint);letter-spacing:.1em;">PROGRESO DEL PLAN</div>
@@ -334,7 +324,7 @@ const m1 = [
     ],
     blockC:[
       ex('Sentadilla búlgara c/mancuernas',3,'10-12 c/lado','RIR 2','75 seg',{kneeAlert:true}),
-      ex('Curl femoral acostado en máquina',3,'12','RIR 2','60 seg'),
+      ex('Banco de femorales (acostado o sentado)',3,'12','RIR 2','60 seg'),
       ex('Patada de glúteo en polea',3,'15 c/lado','RIR 1-2','45 seg'),
       ex('Gemelos de pie en máquina',3,'15','RIR 1','45 seg'),
     ],
@@ -401,7 +391,7 @@ const m2 = [
       ex('Hip thrust c/barra',4,'10','RIR 2','90 seg'),
     ],
     blockC:[
-      ex('SS A1: Curl femoral acostado en máquina',3,'12','RIR 1-2','15 seg → enlazar'),
+      ex('SS A1: Banco de femorales (acostado o sentado)',3,'12','RIR 1-2','15 seg → enlazar'),
       ex('SS A2: Patada de glúteo en polea',3,'15 c/lado','RIR 1','60 seg tras la pareja'),
       ex('Sentadilla búlgara c/mancuernas (tempo lento)',3,'10 c/lado','RIR 1-2','75 seg',{kneeAlert:true, notes:'Bajada de 3 segundos en cada repetición.'}),
       ex('Gemelos de pie en máquina',3,'15-20','RIR 1','45 seg'),
@@ -466,7 +456,7 @@ const m3 = [
     ],
     blockC:[
       ex('Sentadilla búlgara c/mancuernas',3,'8-10 c/lado','RIR 1','75 seg',{kneeAlert:true}),
-      ex('Curl femoral acostado (myo-reps)',2,'10 + mini-series de 5','RIR 0','30 seg'),
+      ex('Banco de femorales (myo-reps)',2,'10 + mini-series de 5','RIR 0','30 seg'),
       ex('Patada de glúteo en polea (drop set)',2,'12 + drop a peso menor x12','RIR 0-1','45 seg',{notes:'Al llegar al fallo bajás el peso ~20% sin descanso y continuás.'}),
       ex('Gemelos de pie en máquina',3,'12-15','RIR 0-1','45 seg'),
     ],
@@ -570,7 +560,15 @@ function getMeso(week) {
   return MESOCYCLES[2];
 }
 function getSessions(week) {
-  return TEMPLATES[getMeso(week).id];
+  const meso = getMeso(week);
+  const allDays = TEMPLATES[meso.id];
+  const daysPerWeek = 5;
+  const weekInMeso = week - meso.weeks[0]; // 0-based dentro del bloque
+  const totalWeeksDefined = Math.floor(allDays.length / daysPerWeek);
+  // Usar la semana más cercana disponible (nunca superar lo definido)
+  const safeWeek = Math.min(weekInMeso, totalWeeksDefined - 1);
+  const offset = safeWeek * daysPerWeek;
+  return allDays.slice(offset, offset + daysPerWeek);
 }
 
 /* ============================================================
@@ -761,6 +759,59 @@ function renderPlan() {
 /* ============================================================
    RENDER: SESSION
    ============================================================ */
+
+// ── Renderizar lista de ejercicios agrupando superseries ─────────────────────
+function renderExerciseList(frag, exercises, week, dayIdx, phase) {
+  let i = 0;
+  while (i < exercises.length) {
+    const ex = exercises[i];
+    const ssGroup = isSS(ex.name);
+
+    if (ssGroup) {
+      // Recopilar todos los ejercicios de esta superserie
+      const groupExs = [];
+      while (i < exercises.length && isSS(exercises[i].name) && getSupersetGroup(exercises[i].name) === ssGroup) {
+        groupExs.push({ ex: exercises[i], idx: i });
+        i++;
+      }
+
+      // Contenedor visual de superserie
+      const groupEl = document.createElement('div');
+      groupEl.className = 'supersetie-group';
+
+      // Label
+      const labelEl = document.createElement('div');
+      labelEl.className = 'superserie-label';
+      labelEl.innerHTML = '⚡ SUPERSERIE ' + ssGroup + ' — ' + groupExs.length + ' ejercicios seguidos';
+      groupEl.appendChild(labelEl);
+
+      // Instrucciones
+      const instrEl = document.createElement('div');
+      instrEl.className = 'superserie-instructions';
+      const restText = groupExs[groupExs.length-1].ex.rest || '60 seg';
+      instrEl.innerHTML = '<strong>¿Cómo ejecutar la superserie?</strong><br>' +
+        '1. Hacé todas las reps del Ejercicio 1 → sin descanso pasás inmediatamente al Ejercicio 2 (y siguientes si hay más).<br>' +
+        '2. Eso completa <strong>1 ronda</strong> de la superserie.<br>' +
+        '3. Descansás <strong>' + restText + '</strong> — este es el único descanso entre rondas.<br>' +
+        '4. Volvés al Ejercicio 1 y repetís hasta completar todas las series indicadas.<br>' +
+        '<em>⚠️ No hay descanso entre los ejercicios dentro de cada ronda.</em>';
+      groupEl.appendChild(instrEl);
+
+      // Tarjetas de ejercicios
+      groupExs.forEach(({ ex: e, idx }) => {
+        const exName = getSSBaseName(e.name);
+        const modEx = Object.assign({}, e, { name: exName });
+        groupEl.appendChild(renderExCard(week, dayIdx, phase, idx, modEx));
+      });
+
+      frag.appendChild(groupEl);
+    } else {
+      frag.appendChild(renderExCard(week, dayIdx, phase, i, ex));
+      i++;
+    }
+  }
+}
+
 function renderSession(week, dayIdx, session) {
   const frag = document.createDocumentFragment();
   const isUpper = session.dayType === 'upper';
@@ -769,9 +820,10 @@ function renderSession(week, dayIdx, session) {
   const isDone = !!state.sessionDone[doneKey];
 
   // Badge
-  const badgeText = isUpper ? 'Tren Superior' : isCardio ? 'Cardio' : 'Pierna 🦴';
+  // Badge basado en dayFocus del plan
+  const badgeText = session.dayFocus || (isUpper ? 'Tren Superior' : isCardio ? 'Cardio' : 'Pierna');
   const badgeEl = h('div', {id:'session-badge'},
-    h('span', {className:'badge badge-' + (isUpper ? 'upper' : 'accent')}, badgeText)
+    h('span', {className:'badge badge-' + (isUpper ? 'upper' : isCardio ? 'dim' : 'accent')}, badgeText)
   );
   frag.appendChild(badgeEl);
 
@@ -780,6 +832,26 @@ function renderSession(week, dayIdx, session) {
     className:'done-btn ' + (isDone ? 'done' : 'undone'),
     onclick: () => {
       if (isReadOnlyMode()) return;
+      if (!isDone) {
+        // Verificar si hay ejercicios de fuerza sin registrar
+        const allExs = [...(session.blockB||[]), ...(session.blockC||[])];
+        const pendientes = allExs.filter((e, i) => {
+          const ph = i < (session.blockB||[]).length ? 'B' : 'C';
+          const idx = ph === 'B' ? i : i - (session.blockB||[]).length;
+          const key = 'w' + week + '_d' + dayIdx + '_' + ph + '__log' + idx;
+          const entry = state.logData[key];
+          const hasSets = entry && entry.sets && entry.sets.some(s => s.kg || s.reps);
+          return !hasSets && typeof e.sets === 'number' && e.sets > 0;
+        });
+        if (pendientes.length > 0) {
+          const warn = document.getElementById('session-incomplete-warn');
+          if (warn) {
+            warn.style.display = 'block';
+            warn.textContent = '⚠️ Faltan ' + pendientes.length + ' ejercicio(s) sin registrar: ' + pendientes.map(e => e.name.replace(/^SS [AB]\d:\s*/i,'')).join(', ') + '. Podés completar igual si no pudiste hacerlos.';
+            setTimeout(() => { warn.style.display = 'none'; }, 5000);
+          }
+        }
+      }
       state.sessionDone[doneKey] = !state.sessionDone[doneKey];
       save(); renderPlan(); renderHeader();
     }
@@ -791,10 +863,15 @@ function renderSession(week, dayIdx, session) {
   titleRow.appendChild(doneBtn);
   frag.appendChild(titleRow);
 
+  // Aviso de sesión incompleta
+  const warnEl = document.createElement('div');
+  warnEl.id = 'session-incomplete-warn';
+  warnEl.className = 'session-incomplete-warn';
+  warnEl.style.display = 'none';
+  frag.appendChild(warnEl);
+
   // Coach note
-  const noteText = isCardio ? 'Respetá el ritmo indicado de RPE.' : isUpper
-    ? `Semana ${week}/12 · ${getMeso(week).subtitle}. Registrá tus cargas — estas sesiones también forman parte de tu historial.`
-    : `Semana ${week}/12 · ${getMeso(week).subtitle}. Registrá tus cargas y prestá atención a la sensación de rodilla en los ejercicios marcados 🦴.`;
+  const noteText = `Semana ${week}/12 · ${getMeso(week).subtitle}. Registrá tus cargas — cada registro cuenta para tu progreso.`;
   frag.appendChild(h('div', {className:'coach-note'},
     h('strong', null, 'Nota del coach: '), noteText
   ));
@@ -887,12 +964,12 @@ function renderSession(week, dayIdx, session) {
 
   // Fase B
   frag.appendChild(h('div', {className:'phase-label'}, 'Fase B — Fuerza / Hipertrofia principal'));
-  session.blockB.forEach((e, i) => frag.appendChild(renderExCard(week, dayIdx, 'B', i, e)));
+  renderExerciseList(frag, session.blockB, week, dayIdx, 'B');
 
   // Fase C
   if (session.blockC && session.blockC.length) {
     frag.appendChild(h('div', {className:'phase-label'}, 'Fase C — Hipertrofia accesoria'));
-    session.blockC.forEach((e, i) => frag.appendChild(renderExCard(week, dayIdx, 'C', i, e)));
+    renderExerciseList(frag, session.blockC, week, dayIdx, 'C');
   }
 
   // Fase D
@@ -953,6 +1030,64 @@ function closeVideoModal(){
 }
 document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeVideoModal(); });
 
+
+// ── Detectar si un nombre es parte de superserie ─────────────────────────────
+function isSS(name) { return /^SS [AB]\d:/i.test(name); }
+function getSupersetGroup(name) { const m = name.match(/^SS ([AB]\d):/i); return m ? m[1] : null; }
+function getSSBaseName(name) { return name.replace(/^SS [AB]\d:\s*/i, ''); }
+
+// ── Explicaciones de técnicas avanzadas ──────────────────────────────────────
+function getTechNote(name, reps) {
+  const n = (name + ' ' + (reps||'')).toLowerCase();
+  if (/myo.rep/i.test(n)) return {
+    title: '¿Cómo ejecutar los Myo-reps?',
+    text: '1. Hacé el número de reps indicado (ej: 10) con buena técnica — esto es el "set activador". Dejá 1-2 reps en el tanque, no llegues al fallo total.\n2. Descansá SOLO 5 segundos contando en tu cabeza (es intencional que sea poco).\n3. Hacé 3-5 reps más — esto es un "mini-set".\n4. Descansá otros 5 segundos.\n5. Repetí los mini-sets 3 o 4 veces más, o hasta que ya no puedas completar 3 reps seguidas con buena forma.\n⏱ DESCANSO ENTRE SERIES: Una vez que terminaste todos los mini-sets, recién ahí descansás el tiempo indicado (ej: 60 seg) antes de empezar la siguiente serie completa desde el paso 1.'
+  };
+  if (/drop.set/i.test(n)) return {
+    title: '¿Cómo ejecutar un Drop Set?',
+    text: '1. Hacé las reps indicadas con tu peso habitual hasta el fallo técnico (o hasta el número indicado).\n2. SIN descansar, bajá el peso inmediatamente un 20-30% (ej: si usabas 20 kg, pasás a 14-16 kg).\n3. Seguí haciendo reps con el peso más liviano hasta el fallo nuevamente.\n⚠️ Todo eso JUNTO (peso original + bajada) cuenta como UNA sola serie.\n⏱ DESCANSO ENTRE SERIES: Recién después de terminar el drop completo (ambos pesos) descansás el tiempo indicado antes de la siguiente serie.'
+  };
+  if (/tempo|tempo lento/i.test(n)) return {
+    title: '¿Qué es el tempo lento?',
+    text: 'En cada repetición, bajá el peso contando 3 segundos lentamente (fase de bajada). Arriba podés subir con normalidad. Esto no cambia los descansos entre series — seguís descansando el tiempo indicado entre cada serie completa.\nEjemplo en sentadilla: bajás 3 segundos hasta abajo, subís normal. Eso es 1 rep.'
+  };
+  if (/pausa/i.test(n) && /\d\s*seg/i.test(n)) return {
+    title: 'Técnica de pausa',
+    text: 'En el punto de máxima tensión del ejercicio, mantenés la posición el tiempo indicado DENTRO de cada repetición (ej: 2 seg arriba en el hip thrust) antes de continuar.\n⏱ DESCANSO ENTRE SERIES: No cambia — seguís descansando el tiempo indicado entre series completas.'
+  };
+  return null;
+}
+
+// ── Buscar historial del ejercicio en sesiones anteriores ────────────────────
+function findLastRecord(exName, currentWeek, currentDayIdx, currentPhase, currentIdx) {
+  const currentLogKey = 'w' + currentWeek + '_d' + currentDayIdx + '_' + currentPhase + '__log' + currentIdx;
+  // Buscar en todas las semanas/días anteriores
+  const results = [];
+  for (let w = 1; w <= 12; w++) {
+    for (let d = 0; d < 5; d++) {
+      for (const ph of ['B', 'C', 'D']) {
+        for (let i = 0; i < 10; i++) {
+          const key = 'w' + w + '_d' + d + '_' + ph + '__log' + i;
+          if (key === currentLogKey) continue;
+          const nameKey = key + '__name';
+          const registeredName = (state.logData[nameKey] && state.logData[nameKey].v) || '';
+          const entry = state.logData[key];
+          if (!entry) continue;
+          // Comparar por nombre guardado o por posición si es el mismo ejercicio
+          const sameByName = registeredName && registeredName.toLowerCase() === exName.toLowerCase();
+          if (sameByName && entry.sets && entry.sets.some(s => s.kg || s.reps)) {
+            results.push({ week: w, day: d, phase: ph, idx: i, entry, key });
+          }
+        }
+      }
+    }
+  }
+  // Devolver el más reciente
+  if (!results.length) return null;
+  return results[results.length - 1];
+}
+
+
 function renderExCard(week, dayIdx, phase, idx, exObj) {
   const dayKey = `w${week}_d${dayIdx}_${phase}`;
   const logKey = `${dayKey}__log${idx}`;
@@ -966,7 +1101,6 @@ function renderExCard(week, dayIdx, phase, idx, exObj) {
   // Header
   const top = h('div', {className:'ex-top'});
   const nameWrap = h('div', {className:'ex-name'});
-  if (exObj.kneeAlert) nameWrap.appendChild(document.createTextNode('🦴 '));
   // Nombre editable — se guarda en logData con clave __name
   const nameKey = logKey + '__name';
   const savedName = (state.logData[nameKey] && state.logData[nameKey].v) || exObj.name;
@@ -999,6 +1133,59 @@ function renderExCard(week, dayIdx, phase, idx, exObj) {
   if (exObj.notes) {
     card.appendChild(h('div', {className:'ex-note'}, exObj.notes));
   }
+
+  // Técnica avanzada — explicación automática
+  const techNote = getTechNote(exObj.name, exObj.reps);
+  if (techNote) {
+    const tn = document.createElement('div');
+    tn.className = 'tech-note';
+    const tnTitle = document.createElement('strong');
+    tnTitle.textContent = '📖 ' + techNote.title;
+    tn.appendChild(tnTitle);
+    tn.appendChild(document.createTextNode(techNote.text));
+    card.appendChild(tn);
+  }
+
+  // Botón historial — ver última vez que se hizo este ejercicio
+  const histBtn = document.createElement('button');
+  histBtn.className = 'hist-btn';
+  histBtn.innerHTML = '🕐 Ver última vez';
+  let histVisible = false;
+  const histPanel = document.createElement('div');
+  histPanel.className = 'hist-panel';
+  histPanel.style.display = 'none';
+
+  histBtn.addEventListener('click', function() {
+    histVisible = !histVisible;
+    if (histVisible) {
+      const rec = findLastRecord(savedName, week, dayIdx, phase, idx);
+      if (!rec) {
+        histPanel.innerHTML = '<div class="hist-title">Sin registro previo</div><div>Este es el primer registro de este ejercicio.</div>';
+      } else {
+        const dayLabels = ['Lunes','Martes','Miércoles','Jueves','Viernes'];
+        const dayLabel = dayLabels[rec.day] || ('Día ' + (rec.day+1));
+        let html = '<div class="hist-title">Última vez: Semana ' + rec.week + ' · ' + dayLabel + '</div>';
+        if (rec.entry.sets && rec.entry.sets.length) {
+          rec.entry.sets.forEach((s, i) => {
+            if (s.kg || s.reps) {
+              html += '<div class="hist-row">Serie ' + (i+1) + ': <strong>' + (s.kg||'—') + ' kg</strong> × <strong>' + (s.reps||'—') + ' reps</strong></div>';
+            }
+          });
+        }
+        if (rec.entry.comment) {
+          html += '<div style="margin-top:6px;color:var(--dim);font-style:italic;">💬 ' + rec.entry.comment + '</div>';
+        }
+        histPanel.innerHTML = html;
+      }
+      histPanel.style.display = 'block';
+      histBtn.innerHTML = '🕐 Ocultar historial';
+    } else {
+      histPanel.style.display = 'none';
+      histBtn.innerHTML = '🕐 Ver última vez';
+    }
+  });
+  card.appendChild(histBtn);
+  card.appendChild(histPanel);
 
   // Video field
   // ── BOTÓN DE VIDEO (sin embed, solo abre el link) ──
@@ -1160,7 +1347,7 @@ function renderStats() {
   const grid = h('div', {className:'stats-grid'});
 
   const s1 = h('div', {className:'stat-card'});
-  s1.appendChild(h('div', {className:'stat-num', style:'color:var(--accent)'}, doneCount));
+  s1.appendChild(h('div', {className:'stat-num', style:'color:var(--lime)'}, doneCount));
   s1.appendChild(h('div', {className:'stat-label'}, `de ${totalSessions} sesiones completadas`));
   grid.appendChild(s1);
 
@@ -1354,81 +1541,41 @@ function commitName() {
    EXPORT / IMPORT
    ============================================================ */
 /* ============================================================ GITHUB PROGRESS SYNC */
-const GH_PROGRESS_FILE = 'progreso.json';
-
-function getProgressToken(){ return localStorage.getItem('gh_token_victoria')||''; }
-function setProgressToken(t){ localStorage.setItem('gh_token_victoria',t); }
+const WORKER_URL = 'https://impetus-sync.martinmamchur.workers.dev';
+const WORKER_REPO = 'PlanOnline-Victoria';
 
 async function ghLoadProgress(){
   try{
-    const url='https://raw.githubusercontent.com/'+GH_USER+'/'+GH_REPO+'/main/'+GH_PROGRESS_FILE+'?t='+Date.now();
-    const res=await fetch(url);
+    const res = await fetch(WORKER_URL+'?repo='+WORKER_REPO+'&t='+Date.now());
     if(!res.ok) return null;
-    return await res.json();
+    const d = await res.json();
+    return d;
   }catch(e){ return null; }
 }
 
-async function reloadProgress(){
-  showSyncMsg('Actualizando desde GitHub...','');
-  try {
-    const ghProgress = await ghLoadProgress();
-    if (ghProgress && ghProgress.logData) {
-      state.logData = ghProgress.logData;
-      state.sessionDone = ghProgress.sessionDone || {};
-      if(ghProgress.planStart) state.planStart = ghProgress.planStart;
-      storageSet('logData', state.logData);
-      storageSet('sessionDone', state.sessionDone);
-      storageSet('planStart', state.planStart);
-      storageSet('lastLocalSave', ghProgress.exportedAt || new Date().toISOString());
-      renderHeader();
-      renderPlan();
-      showSyncMsg('✓ Progreso actualizado','ok');
-    } else {
-      showSyncMsg('Sin progreso guardado en GitHub','');
-    }
-  } catch(e) { showSyncMsg('✗ Error al actualizar','err'); }
-}
-
 async function ghSaveProgress(){
-  const token=getProgressToken();
-  if(!token){ showSyncMsg('Pegá tu token de GitHub primero','err'); showTokenUI(); return; }
   showSyncMsg('Sincronizando...','');
   const data={app:'plan-victoria',exportedAt:new Date().toISOString(),
     planStart:state.planStart,logData:state.logData,videos:state.videos,sessionDone:state.sessionDone};
   try{
-    const apiUrl='https://api.github.com/repos/'+GH_USER+'/'+GH_REPO+'/contents/'+GH_PROGRESS_FILE;
-    const headers={'Authorization':'token '+token,'Accept':'application/vnd.github.v3+json','Content-Type':'application/json'};
-    let sha=null;
-    try{ const gr=await fetch(apiUrl,{headers}); if(gr.ok){const gd=await gr.json(); sha=gd.sha;} }catch(e){}
-    const content=btoa(unescape(encodeURIComponent(JSON.stringify(data,null,2))));
-    const body={message:'Progreso Victoria — '+new Date().toLocaleString(),content,...(sha?{sha}:{})};
-    const r=await fetch(apiUrl,{method:'PUT',headers,body:JSON.stringify(body)});
-    if(r.ok){ showSyncMsg('☁ Sincronizado en GitHub','ok'); }
-    else if(r.status===401||r.status===403){ showSyncMsg('✗ Tu token venció o es inválido — pegá uno nuevo','err'); showTokenUI(); }
-    else{ showSyncMsg('✗ Error al sincronizar ('+r.status+')','err'); }
-  }catch(e){ showSyncMsg('✗ Error al sincronizar','err'); }
+    const res=await fetch(WORKER_URL+'?repo='+WORKER_REPO,{method:'PUT',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});
+    if(res.ok){showSyncMsg('☁ Sincronizado','ok');}
+    else{showSyncMsg('✗ Error ('+res.status+')','err');}
+  }catch(e){showSyncMsg('✗ Error al sincronizar','err');}
 }
 
-function showSyncMsg(text,type){
-  const el=document.getElementById('sync-msg');
-  if(!el) return;
-  el.textContent=text;
-  el.style.color=type==='ok'?'var(--lime)':type==='err'?'var(--accent)':'var(--dim)';
-  if(text) setTimeout(()=>{ el.textContent=''; },3000);
-}
-
-function showTokenUI(){
-  const el=document.getElementById('token-ui');
-  if(el) el.style.display=el.style.display==='none'?'block':'none';
-}
-
-function saveTokenAndClose(){
-  const inp=document.getElementById('token-input');
-  if(inp && inp.value.trim()){
-    setProgressToken(inp.value.trim());
-    showTokenUI();
-    showSyncMsg('Token guardado','ok');
-  }
+async function reloadProgress(){
+  showSyncMsg('Actualizando...','');
+  try{
+    const p=await ghLoadProgress();
+    if(p&&p.logData){
+      state.logData=p.logData; state.sessionDone=p.sessionDone||{};
+      if(p.planStart) state.planStart=p.planStart;
+      storageSet('logData',state.logData); storageSet('sessionDone',state.sessionDone); storageSet('planStart',state.planStart);
+      renderHeader(); renderPlan();
+      showSyncMsg('✓ Actualizado','ok');
+    }else{showSyncMsg('Sin datos en GitHub','');}
+  }catch(e){showSyncMsg('✗ Error','err');}
 }
 
 /* ============================================================ EXPORT / IMPORT */
@@ -1446,7 +1593,7 @@ function resetAll() {
 function _showError(msg, detail) {
   var c = document.getElementById('content');
   if (!c) return;
-  c.innerHTML = '<div style="padding:20px;color:var(--accent);font-family:monospace;font-size:13px;line-height:1.6">'
+  c.innerHTML = '<div style="padding:20px;color:var(--lime);font-family:monospace;font-size:13px;line-height:1.6">'
     + '<div style="font-size:16px;font-weight:bold;margin-bottom:12px">⚠️ Error al cargar</div>'
     + '<div style="margin-bottom:8px">' + msg + '</div>'
     + (detail ? '<div style="background:#1d1d1d;padding:10px;border-radius:6px;margin-top:8px;font-size:11px;color:#9a9a96;word-break:break-all">' + detail + '</div>' : '')
