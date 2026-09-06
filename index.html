@@ -221,7 +221,6 @@ input::placeholder,textarea::placeholder{color:var(--faint);}
     <div id="header-btns">
       <button class="hbtn" onclick="ghSaveProgress()" style="border-color:var(--lime);color:var(--lime);">☁ SINCRONIZAR</button>
       <button class="hbtn" onclick="reloadProgress()" style="border-color:var(--lime);color:var(--lime);">🔄 ACTUALIZAR</button>
-      <button class="hbtn" onclick="showTokenUI()" style="border-color:var(--dim);color:var(--dim);">🔑 TOKEN</button>
       <button id="readonly-toggle-btn" class="hbtn" onclick="toggleReadOnlyMode()">👁 MODO LECTURA: OFF</button>
       <div id="sync-msg" style="font-size:12px;margin-top:4px;"></div>
     </div>
@@ -1061,28 +1060,44 @@ function getTechNote(name, reps) {
 // ── Buscar historial del ejercicio en sesiones anteriores ────────────────────
 function findLastRecord(exName, currentWeek, currentDayIdx, currentPhase, currentIdx) {
   const currentLogKey = 'w' + currentWeek + '_d' + currentDayIdx + '_' + currentPhase + '__log' + currentIdx;
-  // Buscar en todas las semanas/días anteriores
   const results = [];
+  const nameNorm = exName.toLowerCase().trim();
+
   for (let w = 1; w <= 12; w++) {
     for (let d = 0; d < 5; d++) {
       for (const ph of ['B', 'C', 'D']) {
         for (let i = 0; i < 10; i++) {
           const key = 'w' + w + '_d' + d + '_' + ph + '__log' + i;
           if (key === currentLogKey) continue;
-          const nameKey = key + '__name';
-          const registeredName = (state.logData[nameKey] && state.logData[nameKey].v) || '';
           const entry = state.logData[key];
           if (!entry) continue;
-          // Comparar por nombre guardado o por posición si es el mismo ejercicio
-          const sameByName = registeredName && registeredName.toLowerCase() === exName.toLowerCase();
-          if (sameByName && entry.sets && entry.sets.some(s => s.kg || s.reps)) {
-            results.push({ week: w, day: d, phase: ph, idx: i, entry, key });
+          if (!entry.sets || !entry.sets.some(s => s.kg || s.reps)) continue;
+
+          // Comparar por nombre guardado (si el usuario lo editó)
+          const nameKey = key + '__name';
+          const savedName = (state.logData[nameKey] && state.logData[nameKey].v) || '';
+          if (savedName && savedName.toLowerCase().trim() === nameNorm) {
+            results.push({ week: w, day: d, phase: ph, idx: i, entry });
+            continue;
           }
+
+          // Si no hay nombre guardado, buscar en el plan por posición
+          try {
+            const sessDays = getSessions(w);
+            if (!sessDays || !sessDays[d]) continue;
+            const sess = sessDays[d];
+            const blockKey = ph === 'B' ? 'blockB' : ph === 'C' ? 'blockC' : 'blockD';
+            const block = sess[blockKey];
+            if (!block || !block[i]) continue;
+            const planName = (block[i].name || '').replace(/^SS [AB]\d:\s*/i, '').toLowerCase().trim();
+            if (planName === nameNorm) {
+              results.push({ week: w, day: d, phase: ph, idx: i, entry });
+            }
+          } catch(e) {}
         }
       }
     }
   }
-  // Devolver el más reciente
   if (!results.length) return null;
   return results[results.length - 1];
 }
