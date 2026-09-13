@@ -658,7 +658,7 @@ function adaptSession(session,timeMode,energyMode,_week,_dayIdx){
   const isCircuito=session.dayType==='circuito';
   if(timeMode==='normal'&&energyMode==='high')return{...s,ceoMod:null,ceoBadge:'normal',ceoNote:null};
   let badge='normal',note='';
-  function adjRIR(rir,d){if(!rir)return rir;return rir.replace(/RIR (\d+)/,(_,n)=>'RIR '+(parseInt(n)+d));}
+  function adjRIR(rir,d){if(!rir)return rir;return rir.replace(/RIR (\d+)(?:-(\d+))?/,(m,n1,n2)=>{const a=parseInt(n1)+d;return n2!==undefined?'RIR '+a+'-'+(parseInt(n2)+d):'RIR '+a;});}
   if(isCircuito){
     // Aplicar variante de formato según energía
     const applyVariants = (blockC, energy) => {
