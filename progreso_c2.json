@@ -1,6 +1,6 @@
 {
   "app": "plan-victoria-ceo-c2",
-  "exportedAt": "2026-09-13T15:10:33.173Z",
+  "exportedAt": "2026-09-13T15:11:07.900Z",
   "planStart": "",
   "logData": {},
   "videos": {
@@ -88,5 +88,7 @@
     "calentamiento__core2": "https://youtube.com/shorts/gg_h-peM9t8?feature=share",
     "calentamiento__core3": "https://youtube.com/shorts/PJa3GBk1GA4?feature=share"
   },
-  "sessionDone": {}
+  "sessionDone": {
+    "w1_d0__done": true
+  }
 }
