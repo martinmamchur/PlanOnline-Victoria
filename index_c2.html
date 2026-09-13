@@ -1591,7 +1591,7 @@ document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeVi
 
 // ── Detectar si un nombre es parte de superserie ─────────────────────────────
 function isSS(name) { return /^SS [AB]\d:/i.test(name); }
-function getSupersetGroup(name) { const m = name.match(/^SS ([AB]\d):/i); return m ? m[1] : null; }
+function getSupersetGroup(name) { const m = name.match(/^SS ([AB])\d:/i); return m ? m[1] : null; }
 function getSSBaseName(name) { return name.replace(/^SS [AB]\d:\s*/i, ''); }
 
 // ── Explicaciones de técnicas avanzadas ──────────────────────────────────────
