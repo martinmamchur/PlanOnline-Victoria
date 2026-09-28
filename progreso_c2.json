@@ -1,7 +1,7 @@
 {
   "app": "plan-victoria-ceo-c2",
-  "exportedAt": "2026-09-28T17:36:50.334Z",
-  "planStart": "",
+  "exportedAt": "2026-09-28T17:37:40.472Z",
+  "planStart": "2026-09-28",
   "logData": {
     "w1_d1_C__log2__name": {
       "v": "ExtensiÃ³n de trÃ­ceps en polea (barra)"
@@ -97,7 +97,8 @@
     "Peso muerto rumano c/mancuernas": " https://youtube.com/shorts/gTstsPcF5xw?feature=share",
     "Curl femoral sentado en máquina": "https://youtube.com/shorts/r1vUzNEF5pg?feature=share",
     "Sentadilla búlgara c/mancuernas": "https://youtube.com/shorts/CX_ycUrdwXI?feature=share",
-    "Patada de glúteo en polea": "https://youtube.com/shorts/4RiLWCERhtM?feature=share"
+    "Patada de glúteo en polea": "https://youtube.com/shorts/4RiLWCERhtM?feature=share",
+    "Gemelos de pie en máquina": "https://youtube.com/shorts/9YtDRqqcyAs?feature=share"
   },
   "sessionDone": {
     "w1_d0__done": false
