@@ -1,10 +1,10 @@
 {
   "app": "plan-victoria-ceo-c2",
-  "exportedAt": "2026-09-28T17:37:40.472Z",
+  "exportedAt": "2026-09-28T17:38:09.247Z",
   "planStart": "2026-09-28",
   "logData": {
     "w1_d1_C__log2__name": {
-      "v": "ExtensiÃ³n de trÃ­ceps en polea (barra)"
+      "v": "ExtensiÃÂ³n de trÃÂ­ceps en polea (barra)"
     },
     "w1_d4_B__log0__name": {
       "v": "Sentadilla goblet con mancuerna"
@@ -34,7 +34,7 @@
     "Gemelos sentada (drop set)": "",
     "Gemelos sentada en mÃ¡quina": "",
     "Hip thrust a una pierna": "https://youtube.com/shorts/_LUGsFwPJyk?feature=share",
-    "Hip thrust c/barra": "https://youtube.com/shorts/7JZi-GerrmY?feature=share",
+    "Hip thrust c/barra": "https://youtube.com/shorts/TOddmXY9-0g?feature=share",
     "JalÃ³n al pecho agarre amplio": "https://youtube.com/shorts/cwYggf6ytn8?feature=share",
     "JalÃ³n al pecho agarre cerrado supino": "",
     "Patada de glÃºteo en polea": "https://youtube.com/shorts/4RiLWCERhtM?feature=share",
@@ -93,12 +93,7 @@
     "calentamiento__mov4": "https://youtube.com/shorts/dFHHTsWREo0?feature=share",
     "calentamiento__core1": "https://youtube.com/shorts/AB7OXvB2dK0?feature=share",
     "calentamiento__core2": "https://youtube.com/shorts/gg_h-peM9t8?feature=share",
-    "calentamiento__core3": "https://youtube.com/shorts/PJa3GBk1GA4?feature=share",
-    "Peso muerto rumano c/mancuernas": " https://youtube.com/shorts/gTstsPcF5xw?feature=share",
-    "Curl femoral sentado en máquina": "https://youtube.com/shorts/r1vUzNEF5pg?feature=share",
-    "Sentadilla búlgara c/mancuernas": "https://youtube.com/shorts/CX_ycUrdwXI?feature=share",
-    "Patada de glúteo en polea": "https://youtube.com/shorts/4RiLWCERhtM?feature=share",
-    "Gemelos de pie en máquina": "https://youtube.com/shorts/9YtDRqqcyAs?feature=share"
+    "calentamiento__core3": "https://youtube.com/shorts/PJa3GBk1GA4?feature=share"
   },
   "sessionDone": {
     "w1_d0__done": false
