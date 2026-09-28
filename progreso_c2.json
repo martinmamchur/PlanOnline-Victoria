@@ -1,10 +1,10 @@
 {
   "app": "plan-victoria-ceo-c2",
-  "exportedAt": "2026-09-28T17:42:40.889Z",
+  "exportedAt": "2026-09-28T17:43:02.620Z",
   "planStart": "2026-09-28",
   "logData": {
     "w1_d1_C__log2__name": {
-      "v": "Extensión de tríceps en polea (barra)"
+      "v": "ExtensiÃ³n de trÃ­ceps en polea (barra)"
     },
     "w1_d4_B__log0__name": {
       "v": "Sentadilla goblet con mancuerna"
@@ -93,11 +93,7 @@
     "calentamiento__mov4": "https://youtube.com/shorts/dFHHTsWREo0?feature=share",
     "calentamiento__core1": "https://youtube.com/shorts/AB7OXvB2dK0?feature=share",
     "calentamiento__core2": "https://youtube.com/shorts/gg_h-peM9t8?feature=share",
-    "calentamiento__core3": "https://youtube.com/shorts/PJa3GBk1GA4?feature=share",
-    "Press banca con barra": "https://youtube.com/shorts/VTNjvSFZTgM?feature=share",
-    "Press militar con mancuernas de pie": "https://youtube.com/shorts/z7lUPQZsJTw?feature=share",
-    "Elevación lateral con mancuerna": "https://youtube.com/shorts/Bb9OuA2foBY?feature=share",
-    "Extensión de tríceps en polea (cuerda)": "https://youtube.com/shorts/_JGVBQFzBBA?feature=share"
+    "calentamiento__core3": "https://youtube.com/shorts/PJa3GBk1GA4?feature=share"
   },
   "sessionDone": {
     "w1_d0__done": false
