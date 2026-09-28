@@ -1,6 +1,6 @@
 {
   "app": "plan-victoria-ceo-c2",
-  "exportedAt": "2026-09-28T17:41:20.127Z",
+  "exportedAt": "2026-09-28T17:41:34.874Z",
   "planStart": "2026-09-28",
   "logData": {
     "w1_d1_C__log2__name": {
@@ -96,7 +96,8 @@
     "calentamiento__core3": "https://youtube.com/shorts/PJa3GBk1GA4?feature=share",
     "Press banca con barra": "https://youtube.com/shorts/VTNjvSFZTgM?feature=share",
     "Press militar con mancuernas de pie": "https://youtube.com/shorts/z7lUPQZsJTw?feature=share",
-    "Elevación lateral con mancuerna": "https://youtube.com/shorts/Bb9OuA2foBY?feature=share"
+    "Elevación lateral con mancuerna": "https://youtube.com/shorts/Bb9OuA2foBY?feature=share",
+    "Extensión de tríceps en polea (cuerda)": "https://youtube.com/shorts/_JGVBQFzBBA?feature=share"
   },
   "sessionDone": {
     "w1_d0__done": false
