@@ -1,8 +1,12 @@
 {
   "app": "plan-victoria-ceo-c2",
-  "exportedAt": "2026-09-28T15:06:30.017Z",
+  "exportedAt": "2026-09-28T15:06:51.197Z",
   "planStart": "",
-  "logData": {},
+  "logData": {
+    "w1_d1_C__log2__name": {
+      "v": "Extensión de tríceps en polea (barra)"
+    }
+  },
   "videos": {
     "AbducciÃ³n de cadera en mÃ¡quina": "https://youtube.com/shorts/CAQHQk6U03I?feature=share",
     "AbducciÃ³n de cadera en mÃ¡quina (drop set)": "https://youtube.com/shorts/CAQHQk6U03I?feature=share",
